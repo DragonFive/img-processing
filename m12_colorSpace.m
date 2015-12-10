@@ -27,20 +27,33 @@ f=imread('E:\资料\onedrive\code\test\image\lena.png');
 % -------------------------------------------------------------------
 
 % 下面对图像做平均滤波进行模糊.
+% f = imread('E:\资料\onedrive\code\test\image\Fig0619(a)(RGB_iris).tif');
+% % avgMsk =fspecial('average',15);
+% % g = imfilter(f,avgMsk,'replicate');
+% % myImshow(f);myImshow(g);myImshow(0);
+% 
+% % 用拉普拉斯算子对图像进行边缘锐化;
+% lapMsk = [1,1,1;1,-8,1;1,1,1];
+% lp=imfilter(f,lapMsk,'replicate');
+% flp = f+lp;         % 把变化亮度调低
+% hlp = imsubtract(f,lp); %把边缘亮度调高;
+% myImshow(f);myImshow(lp);myImshow(flp);myImshow(hlp);myImshow(0);
+
+
+% 用梯度求边缘
 f = imread('E:\资料\onedrive\code\test\image\Fig0619(a)(RGB_iris).tif');
-% avgMsk =fspecial('average',15);
-% g = imfilter(f,avgMsk,'replicate');
-% myImshow(f);myImshow(g);myImshow(0);
-
-% 用拉普拉斯算子对图像进行边缘锐化;
-lapMsk = [1,1,1;1,-8,1;1,1,1];
-lp=imfilter(f,lapMsk,'replicate');
-flp = f+lp;         % 把变化亮度调低
-hlp = imsubtract(f,lp); %把边缘亮度调高;
-myImshow(f);myImshow(lp);myImshow(flp);myImshow(hlp);myImshow(0);
+fr = imread('E:\资料\onedrive\code\test\image\Fig0624(a)RGB2-red.tif');
+fg = imread('E:\资料\onedrive\code\test\image\Fig0624(b)RGB2-green.tif');
+fb = imread('E:\资料\onedrive\code\test\image\Fig0624(c)(RGB2-blue).tif');
 
 
-
+fcat= cat(3,fr,fg,fb);
+[VG,A,PPG]=colorgrad(fcat);
+whos PPG;
+myImshow(fcat);myImshow(VG);myImshow(PPG);
+[VG,A,PPG]=colorgrad(f);
+myImshow(f);myImshow(VG);myImshow(PPG);myImshow(0);
+% VG 是三个维度作为一个向量求图像边缘，而PPG是三个分量分别求然后再合成？
 
 
 
