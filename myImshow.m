@@ -1,4 +1,11 @@
 function myImshow(img,argTitle)
+% myImshow Performs auto imshow
+%
+%
+% -------------------------------------------------------------------
+%  Copyright 1992-2015 Ma XiaoLong
+%  $Date: 2015/12/09 15:25:01$
+% -------------------------------------------------------------------
 persistent myNumOfImg %记录最终需要的图片个数;
 persistent M %记录所有的图片
 persistent Title ; % 保存标题;
