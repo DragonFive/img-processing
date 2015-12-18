@@ -12,7 +12,7 @@
 % -------------------------------------------------------------------
 clear all;
 close all;
-f=imread('E:\资料\onedrive\code\test\image\ship2.jpg');%ship2.jpg %jupitermoon_original).tif
+f=imread('E:\资料\onedrive\code\test\image\240389-14051PK92623.jpg');%ship2.jpg %jupitermoon_original).tif
 % 取关注区域
 msk = roipoly(f);
 myImshow(f,'原图');
